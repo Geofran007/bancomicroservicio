@@ -2,6 +2,11 @@
 Script en posgresql para crear las tablas necesarias para el proyecto y cargarlas
 NO REQUIERE ACTUALIZAR LAS TABLAS PUES EL CONTENEDOR LO GUARDA EN MEMORIA
 
+Creación de usuario para aplicativo
+
+CREATE ROLE app_backed WITH LOGIN PASSWORD 'backed_pass_123';
+GRANT ALL ON SCHEMA seguridad TO app_backed;
+
 */
 
 --Creación de esquema para guardar la información de las tablas
