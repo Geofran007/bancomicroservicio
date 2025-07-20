@@ -9,6 +9,7 @@ import com.gbatallas.backendbanco.entity.Cliente;
 import com.gbatallas.backendbanco.entity.Persona;
 import com.gbatallas.backendbanco.repository.ClienteRepository;
 import com.gbatallas.backendbanco.repository.PersonaRepository;
+import jakarta.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -148,7 +149,7 @@ public List<ClientePersonaDto> findAllClientesConPersona() {
         clienteRepository.deleteById(id);
     }
     
-    
+    @Transactional
     @Override
     public ClientePersonaDto deleteClienteConPersona(Long id) {
     
@@ -170,6 +171,7 @@ public List<ClientePersonaDto> findAllClientesConPersona() {
 
     // Primero eliminamos el cliente
     clienteRepository.delete(clienteExistente);
+    persona.getClienteList().remove(clienteExistente);
 
     // (Opcional) Eliminar persona si no tiene más clientes
     if (persona.getClienteList().isEmpty()) {

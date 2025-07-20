@@ -76,8 +76,12 @@ INSERT INTO seguridad.persona (nombre, genero, edad, identificacion, direccion, 
 VALUES ('Jose Lema', 'H', 35, '1734567890', 'Otavalo sn y principal', '0982547854');
 INSERT INTO seguridad.persona (nombre, genero, edad, identificacion, direccion, telefono)
 VALUES ('Marianela Montalvo', 'M', 28, '1134567890', 'Amazonas y NNUU', '0975489656');
+INSERT INTO seguridad.persona (nombre, genero, edad, identificacion, direccion, telefono)
+VALUES ('Juan Osorio', 'H', 15, '1158567890', '13 junio y Equinoccial', '098874587');
 
 INSERT INTO seguridad.cliente(contrasenia,idpersona,estado)
 VALUES('1234',1,true);
 INSERT INTO seguridad.cliente(contrasenia,idpersona,estado)
 VALUES('5678',2,true);
+INSERT INTO seguridad.cliente(contrasenia,idpersona,estado)
+VALUES('1245',3,true);
