@@ -4,7 +4,7 @@
  */
 package com.gbatallas.backendbanco.controller;
 
-import com.gbatallas.backendbanco.entity.Cliente;
+import com.gbatallas.backendbanco.dto.ClientePersonaDto;
 import com.gbatallas.backendbanco.service.ClienteService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+
 /**
  *
  * @author gfbat
@@ -30,10 +31,11 @@ public class ClienteRestController {
     private ClienteService clienteService;
     
        @GetMapping("/cliente") 
-       public List<Cliente> index(){
-           return clienteService.findAll();
+       public List<ClientePersonaDto> index(){
+           return clienteService.findAllClientesConPersona();
        }
        
+       /**
        @GetMapping("/cliente/{id}")
        public Cliente show(@PathVariable Long id ){
            return clienteService.findbyId(id);
@@ -45,5 +47,7 @@ public class ClienteRestController {
            return clienteService.save(cliente);
        }
        
+       @PutMapping("/cliente"){}
+       * **/
        
 }

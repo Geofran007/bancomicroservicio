@@ -4,6 +4,7 @@
  */
 package com.gbatallas.backendbanco.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -60,6 +61,7 @@ public class Persona implements Serializable {
     @Column(name = "telefono")
     private String telefono;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpersona", fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Cliente> clienteList;
 
     public Persona() {

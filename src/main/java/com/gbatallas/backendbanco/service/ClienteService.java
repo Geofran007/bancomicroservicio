@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.gbatallas.backendbanco.service;
-
+import com.gbatallas.backendbanco.dto.ClientePersonaDto;
 import com.gbatallas.backendbanco.entity.Cliente;
 import java.util.List;
 
@@ -21,4 +21,13 @@ public interface ClienteService {
     
     public void delete (Long id);
     
+    public List<ClientePersonaDto> findAllClientesConPersona();
+    
+    public ClientePersonaDto findClienteconPersona(Long id);
+    
+    public ClientePersonaDto saveClienteConPersona();
+    
+    public ClientePersonaDto deleteClienteConPersona(Long id); 
+    
+    public Cliente updateClientePersona(ClientePersonaDto dto);
 }
