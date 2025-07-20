@@ -67,6 +67,9 @@ GRANT ALL ON TABLE seguridad.cliente TO app_backed;
 GRANT ALL ON TABLE seguridad.persona TO app_backed;
 GRANT ALL ON TABLE seguridad.movimiento TO app_backed;
 GRANT ALL ON TABLE seguridad.cuenta TO app_backed;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA seguridad TO app_backed;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA seguridad TO app_backed;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA seguridad TO app_backed;
 
 
 INSERT INTO seguridad.persona (nombre, genero, edad, identificacion, direccion, telefono)

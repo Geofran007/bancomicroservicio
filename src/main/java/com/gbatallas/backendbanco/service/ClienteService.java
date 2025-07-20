@@ -19,13 +19,16 @@ public interface ClienteService {
     
     public Cliente save(Cliente cliente);
     
-    public void delete (Long id);
+    public Cliente saveClienteConPersona(ClientePersonaDto dto);
+    
+    public void delete(Long id);
+    
+    public Cliente update(Cliente cliente);
+    
     
     public List<ClientePersonaDto> findAllClientesConPersona();
     
-    public ClientePersonaDto findClienteconPersona(Long id);
-    
-    public ClientePersonaDto saveClienteConPersona();
+    public ClientePersonaDto findClienteconPersonabyId(Long id);
     
     public ClientePersonaDto deleteClienteConPersona(Long id); 
     

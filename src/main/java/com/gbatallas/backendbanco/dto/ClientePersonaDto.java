@@ -11,6 +11,8 @@ package com.gbatallas.backendbanco.dto;
 public class ClientePersonaDto {
     
     //Tabla Cliente
+    
+    private long idcliente;
     private String contrasenia;
     private boolean estado;
 
@@ -135,6 +137,13 @@ public class ClientePersonaDto {
      */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    /**
+     * @return the idcliente
+     */
+    public long getIdcliente() {
+        return idcliente;
     }
     
     

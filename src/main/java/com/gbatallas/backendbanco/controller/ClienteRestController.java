@@ -5,10 +5,12 @@
 package com.gbatallas.backendbanco.controller;
 
 import com.gbatallas.backendbanco.dto.ClientePersonaDto;
+import com.gbatallas.backendbanco.entity.Cliente;
 import com.gbatallas.backendbanco.service.ClienteService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,19 +37,26 @@ public class ClienteRestController {
            return clienteService.findAllClientesConPersona();
        }
        
-       /**
        @GetMapping("/cliente/{id}")
-       public Cliente show(@PathVariable Long id ){
-           return clienteService.findbyId(id);
-       }
-       
-       @PostMapping("/cliente")
-       @ResponseStatus(HttpStatus.CREATED)//201
-       public Cliente create(@RequestBody Cliente cliente){
-           return clienteService.save(cliente);
-       }
-       
-       @PutMapping("/cliente"){}
-       * **/
-       
+       public ClientePersonaDto show(@PathVariable Long id) {
+        return clienteService.findClienteconPersonabyId(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Cliente createClienteConPersona(@RequestBody ClientePersonaDto dto) {
+        return clienteService.saveClienteConPersona(dto);
+    }
+
+    @PutMapping
+    public Cliente updateClienteConPersona(@RequestBody ClientePersonaDto dto) {
+        return clienteService.updateClientePersona(dto);
+    }
+    
+    @DeleteMapping("/cliente/{id}")
+    public ClientePersonaDto deleteClienteConPersona(@PathVariable Long id) {
+        return clienteService.deleteClienteConPersona(id);
+    }
+
+
 }
