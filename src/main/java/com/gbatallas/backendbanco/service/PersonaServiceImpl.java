@@ -4,6 +4,8 @@
  */
 package com.gbatallas.backendbanco.service;
 
+
+import com.gbatallas.backendbanco.dto.MovimientoReporteDto;
 import com.gbatallas.backendbanco.entity.Persona;
 import com.gbatallas.backendbanco.repository.PersonaRepository;
 import java.util.List;
@@ -39,6 +41,6 @@ public class PersonaServiceImpl implements PersonaService{
     public void delete(Long id) {
         personaRepository.deleteById(id);
     }
-    
+
     
 }

@@ -41,7 +41,7 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idcliente")
-    private Integer idcliente;
+    private Long idcliente;
     @Column(name = "contrasenia")
     private String contrasenia;
     @Basic(optional = false)
@@ -57,20 +57,20 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(Integer idcliente) {
+    public Cliente(Long idcliente) {
         this.idcliente = idcliente;
     }
 
-    public Cliente(Integer idcliente, boolean estado) {
+    public Cliente(Long idcliente, boolean estado) {
         this.idcliente = idcliente;
         this.estado = estado;
     }
 
-    public Integer getIdcliente() {
+    public Long getIdcliente() {
         return idcliente;
     }
 
-    public void setIdcliente(Integer idcliente) {
+    public void setIdcliente(Long idcliente) {
         this.idcliente = idcliente;
     }
 

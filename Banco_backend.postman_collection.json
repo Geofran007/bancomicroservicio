@@ -284,7 +284,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"fecha\": \"2025-07-20\",\r\n  \"tipomovimiento\": \"Retiro\",\r\n  \"valor\": 5,\r\n  \"saldo\": -200,\r\n  \"idcuenta\": {\r\n    \"idcuenta\": 2\r\n  }\r\n}",
+					"raw": "{\r\n  \"fecha\": \"2025-07-20\",\r\n  \"tipomovimiento\": \"Deposito\",\r\n  \"valor\": -1500,\r\n  \"idcuenta\": {\r\n    \"idcuenta\": 3\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -348,6 +348,41 @@
 						"movimiento",
 						"delete",
 						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "repote get by fecha",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fecha\": \"2025-07-20\",\r\n  \"tipomovimiento\": \"Deposito\",\r\n  \"valor\": -1500,\r\n  \"idcuenta\": {\r\n    \"idcuenta\": 3\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/reporte?fechainicio=2010-01-01&fechafin=2025-07-20",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reporte"
+					],
+					"query": [
+						{
+							"key": "fechainicio",
+							"value": "2010-01-01"
+						},
+						{
+							"key": "fechafin",
+							"value": "2025-07-20"
+						}
 					]
 				}
 			},

@@ -85,3 +85,12 @@ INSERT INTO seguridad.cliente(contrasenia,idpersona,estado)
 VALUES('5678',2,true);
 INSERT INTO seguridad.cliente(contrasenia,idpersona,estado)
 VALUES('1245',3,true);
+
+INSERT INTO SEGURIDAD.CUENTA (tipo,saldoinicial,idcliente,estado)
+values('CORRIENTE',2000,1,true);
+INSERT INTO SEGURIDAD.CUENTA (tipo,saldoinicial,idcliente,estado)
+values('AHORROS',50,1,true);
+INSERT INTO SEGURIDAD.CUENTA (tipo,saldoinicial,idcliente,estado)
+values('CORRIENTE',1053,2,true);
+INSERT INTO SEGURIDAD.CUENTA (tipo,saldoinicial,idcliente,estado)
+values('CORRIENTE',1053,3,true);

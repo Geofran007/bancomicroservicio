@@ -32,21 +32,21 @@ services:
     networks:
       - backend
 
- # microservicio:
- #   build:
- #     context: .
- #     dockerfile: Dockerfile
- #   container_name: microservicio_container
- #   ports:
- #     - "8081:8080"
- #   depends_on:
- #     - postgres
- #   environment:
- #     SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/banco
- #     SPRING_DATASOURCE_USERNAME: adminpostgres
- #     SPRING_DATASOURCE_PASSWORD: admin123
- #   networks:
- #     - backend
+  microservicio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: microservicio_container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/banco
+      SPRING_DATASOURCE_USERNAME: adminpostgres
+      SPRING_DATASOURCE_PASSWORD: admin123
+    networks:
+      - backend
 
 
 networks:
