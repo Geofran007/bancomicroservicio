@@ -57,3 +57,40 @@ CREATE TABLE seguridad.movimiento (
 	CONSTRAINT fk_cuenta FOREIGN KEY (idcuenta)
 		REFERENCES seguridad.cuenta(idcuenta)
 );
+
+
+CREATE ROLE app_backed WITH LOGIN PASSWORD 'backed_pass_123';
+
+GRANT ALL ON SCHEMA seguridad TO app_backed;
+
+GRANT ALL ON TABLE seguridad.cliente TO app_backed;
+GRANT ALL ON TABLE seguridad.persona TO app_backed;
+GRANT ALL ON TABLE seguridad.movimiento TO app_backed;
+GRANT ALL ON TABLE seguridad.cuenta TO app_backed;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA seguridad TO app_backed;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA seguridad TO app_backed;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA seguridad TO app_backed;
+
+
+INSERT INTO seguridad.persona (nombre, genero, edad, identificacion, direccion, telefono)
+VALUES ('Jose Lema', 'H', 35, '1734567890', 'Otavalo sn y principal', '0982547854');
+INSERT INTO seguridad.persona (nombre, genero, edad, identificacion, direccion, telefono)
+VALUES ('Marianela Montalvo', 'M', 28, '1134567890', 'Amazonas y NNUU', '0975489656');
+INSERT INTO seguridad.persona (nombre, genero, edad, identificacion, direccion, telefono)
+VALUES ('Juan Osorio', 'H', 15, '1158567890', '13 junio y Equinoccial', '098874587');
+
+INSERT INTO seguridad.cliente(contrasenia,idpersona,estado)
+VALUES('1234',1,true);
+INSERT INTO seguridad.cliente(contrasenia,idpersona,estado)
+VALUES('5678',2,true);
+INSERT INTO seguridad.cliente(contrasenia,idpersona,estado)
+VALUES('1245',3,true);
+
+INSERT INTO SEGURIDAD.CUENTA (tipo,saldoinicial,idcliente,estado)
+values('CORRIENTE',2000,1,true);
+INSERT INTO SEGURIDAD.CUENTA (tipo,saldoinicial,idcliente,estado)
+values('AHORROS',50,1,true);
+INSERT INTO SEGURIDAD.CUENTA (tipo,saldoinicial,idcliente,estado)
+values('CORRIENTE',1053,2,true);
+INSERT INTO SEGURIDAD.CUENTA (tipo,saldoinicial,idcliente,estado)
+values('CORRIENTE',1053,3,true);
