@@ -4,6 +4,7 @@
  */
 package com.gbatallas.backendbanco.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -57,6 +58,7 @@ public class Movimiento implements Serializable {
     private long saldo;
     @JoinColumn(name = "idcuenta", referencedColumnName = "idcuenta")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JsonBackReference
     private Cuenta idcuenta;
 
     public Movimiento() {

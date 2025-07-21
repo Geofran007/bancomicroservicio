@@ -12,8 +12,6 @@ import com.gbatallas.backendbanco.repository.PersonaRepository;
 import jakarta.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -169,52 +167,15 @@ public List<ClientePersonaDto> findAllClientesConPersona() {
     dto.setDireccion(persona.getDireccion());
     dto.setTelefono(persona.getTelefono());
 
-    // Primero eliminamos el cliente
     clienteRepository.delete(clienteExistente);
     persona.getClienteList().remove(clienteExistente);
 
-    // (Opcional) Eliminar persona si no tiene más clientes
     if (persona.getClienteList().isEmpty()) {
         personaRepository.delete(persona);
     }
 
     return dto;
     }
-
-    /**
-     * @Override public Cliente updateClientePersona(ClientePersonaDto dto) {
-     *
-     * Cliente cliente = clienteRepository.findById(dto.getIdCliente())
-                .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
-
-        Persona persona = personaRepository.findById(dto.getIdPersona())
-                .orElseThrow(() -> new RuntimeException("Persona no encontrada"));
-
-        // Actualizar Persona
-        persona.setNombre(dto.getNombre());
-        persona.setGenero(dto.getGenero());
-        persona.setEdad(dto.getEdad());
-        persona.setIdentificacion(dto.getIdentificacion());
-        persona.setDireccion(dto.getDireccion());
-        persona.setTelefono(dto.getTelefono());
-        personaRepository.save(persona);
-
-        // Actualizar Cliente
-        cliente.setContrasenia(dto.getContrasenia());
-        cliente.setEstado(dto.getEstado());
-        cliente.setIdpersona(persona); 
-        return clienteRepository.save(cliente);
-    }
-
-*/
-
-
-
-
-
-
-
-
 
 
 }

@@ -26,34 +26,34 @@ import org.springframework.web.bind.annotation.RestController;
  * @author gfbat
  */
 @RestController
-@RequestMapping("")
+@RequestMapping("cliente")
 public class ClienteRestController {
     
     @Autowired
     private ClienteService clienteService;
     
-       @GetMapping("/cliente") 
+       @GetMapping("/get") 
        public List<ClientePersonaDto> index(){
            return clienteService.findAllClientesConPersona();
        }
        
-       @GetMapping("/cliente/{id}")
+       @GetMapping("/get/{id}")
        public ClientePersonaDto show(@PathVariable Long id) {
         return clienteService.findClienteconPersonabyId(id);
     }
 
-    @PostMapping
+    @PostMapping("/post")
     @ResponseStatus(HttpStatus.CREATED)
     public Cliente createClienteConPersona(@RequestBody ClientePersonaDto dto) {
         return clienteService.saveClienteConPersona(dto);
     }
 
-    @PutMapping
+    @PutMapping("/put/{id}")
     public Cliente updateClienteConPersona(@RequestBody ClientePersonaDto dto) {
         return clienteService.updateClientePersona(dto);
     }
     
-    @DeleteMapping("/cliente/{id}")
+    @DeleteMapping("/delete/{id}")
     public ClientePersonaDto deleteClienteConPersona(@PathVariable Long id) {
         return clienteService.deleteClienteConPersona(id);
     }

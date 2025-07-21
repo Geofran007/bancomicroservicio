@@ -4,6 +4,7 @@
  */
 package com.gbatallas.backendbanco.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -40,7 +41,7 @@ public class Cuenta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idcuenta")
-    private Integer idcuenta;
+    private Long idcuenta;
     @Basic(optional = false)
     @Column(name = "tipo")
     private String tipo;
@@ -53,28 +54,29 @@ public class Cuenta implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idcuenta", fetch = FetchType.LAZY)
     private List<Movimiento> movimientoList;
     @JoinColumn(name = "idcliente", referencedColumnName = "idcliente")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
+    @JsonBackReference
     private Cliente idcliente;
 
     public Cuenta() {
     }
 
-    public Cuenta(Integer idcuenta) {
+    public Cuenta(Long idcuenta) {
         this.idcuenta = idcuenta;
     }
 
-    public Cuenta(Integer idcuenta, String tipo, long saldoinicial, boolean estado) {
+    public Cuenta(Long idcuenta, String tipo, long saldoinicial, boolean estado) {
         this.idcuenta = idcuenta;
         this.tipo = tipo;
         this.saldoinicial = saldoinicial;
         this.estado = estado;
     }
 
-    public Integer getIdcuenta() {
+    public Long getIdcuenta() {
         return idcuenta;
     }
 
-    public void setIdcuenta(Integer idcuenta) {
+    public void setIdcuenta(Long idcuenta) {
         this.idcuenta = idcuenta;
     }
 
